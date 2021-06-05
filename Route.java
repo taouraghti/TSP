@@ -58,7 +58,9 @@ public class Route {
                     matrice[i][j] = 0.0;
                 else
                     matrice[i][j] = villes.get(i).mesurerDistance(villes.get(j));
+                //System.out.print(matrice[i][j] + "  ");
             }
+            //System.out.println();
         }
         return matrice;
     }
@@ -92,28 +94,20 @@ public class Route {
     }
     public Solution glouton()
     {
-        Double[][]matrice;
-        matrice = generateMatrice(this.villes);
-        for (int i=0; i < villes.size(); i++)
-        {
-            for (int j = 0; j < villes.size(); j++)
-            {
-                System.out.print(matrice[i][j] + "   ");
-            }
-            System.out.println();
-        }
+        Double[][] matrice;
         Solution s = new Solution();
         int j = 0, k = 0;
-        s.setVilles(this.villes.get(0));
+
+        matrice = generateMatrice(this.villes);
+        s.setVille(this.villes.get(0));
         for (int i=0; i < (villes.size() - 1); i++)
         {
             k = j;
             j = getMin(matrice[k],s.getVilles());
-            s.setVilles(this.villes.get(j));
+            s.setVille(this.villes.get(j));
             s.setTotalDistance(s.getTotalDistance() + matrice[k][j]);
         }
-        System.out.println("distance : " + matrice[j][0]);
-        s.setVilles(this.villes.get(0));
+        s.setVille(this.villes.get(0));
         s.setTotalDistance(s.getTotalDistance() + matrice[j][0]);
         return s;
     }

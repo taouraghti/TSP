@@ -3,6 +3,7 @@ package com.codewithanas;
 import java.util.ArrayList;
 
 public class Solution {
+
     private ArrayList<Ville> villes = new ArrayList<>();
     private double totalDistance;
 
@@ -15,9 +16,14 @@ public class Solution {
         return villes;
     }
 
-    public void setVilles(Ville ville) {
+    public void setVille(Ville ville) {
         this.villes.add(ville);
     }
+
+    public void setVilles(ArrayList<Ville> villes) {
+        this.villes = villes;
+    }
+
 
     public double getTotalDistance() {
         return totalDistance;

@@ -25,11 +25,25 @@ public class Main {
     {
 
         ArrayList<Ville> villes;
-        villes = generateVilles(3);
+        villes = generateVilles(100);
         /*for (Ville v: villes) {
             v.affiche();
         }*/
-        Route r = new Route(villes);
-        r.glouton().affiche();
+
+        //Route r = new Route(villes);
+        //r.glouton().affiche();
+
+        System.out.println("------------Descente-------------");
+        Descente d = new Descente(villes);
+        d.solution().affiche();
+        System.out.println("----------------------------------");
+
+        System.out.println("------------Recuit-------------");
+        RecuitSimule rec = new RecuitSimule(villes);
+        rec.solution().affiche();
+        System.out.println("----------------------------------");
+
+        Genetic g = new Genetic(villes);
+        g.solution();
     }
 }
